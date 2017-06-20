@@ -18,13 +18,13 @@ declare
          
       IF (l_max-l_cur+1) != 0
       THEN
-         execute immediate 'alter sequence '|| p_sequence_name ||' INCREMENT BY '||TO_CHAR(l_max-l_cur+1);
+         execute immediate 'alter sequence '|| p_sequence_name ||' INCREMENT BY '||TO_CHAR(l_max-l_cur-1);
          execute immediate 'SELECT '|| p_sequence_name ||'.nextval FROM dual' INTO l_tmp;
       END IF;
       
       execute immediate 'alter sequence '|| p_sequence_name ||' INCREMENT BY 1';
       execute immediate 'SELECT '|| p_sequence_name ||'.nextval FROM dual' INTO l_cur;
-      dbms_output.put_line('Sequence ' || p_sequence_name || ' current value is '|| l_cur);
+      dbms_output.put_line('Sequence ' || p_sequence_name || ' new current value is '|| l_cur);
    end rewind_seq;
 begin
    
