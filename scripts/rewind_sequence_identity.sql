@@ -1,3 +1,5 @@
+-- @TODO: Identity column sequence can be ALTERed directly with ALTER TABLE statement
+--        so we can pass START WITH or any other sequence parameter directly to it
 declare
    l_seq_name VARCHAR2(4000);
 
