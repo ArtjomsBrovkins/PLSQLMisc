@@ -40,7 +40,7 @@ begin
                    on deps.name = trigs.trigger_name
                  join user_sequences seqs
                    on seqs.sequence_name = deps.referenced_name
-                where tabs.table_name in ('INTERNATIONAL_CLIENT_MAPPING'))
+                where tabs.table_name in (<table_list>))
    LOOP
       l_select_col := REPLACE(
                          REGEXP_SUBSTR(

@@ -35,7 +35,7 @@ begin
                  join user_tab_columns cols
                    on tabs.table_name = cols.table_name
                   and cols.data_default is not null
-                where tabs.table_name in ('SYS_TRANSLATIONS'))
+                where tabs.table_name in (<table_list>))
    LOOP
       -- Additional PL/SQL due to WIDEMEMO column usage in dba_tab_columns
       l_seq_name := REGEXP_SUBSTR(SUBSTR(rec.data_default, 1, 4000), '[A-Z0-9]+\$\$_[A-Z0-9]+');
